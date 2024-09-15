@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <title>Titre de la page</title>
+    <meta name="description" content="Description de la page">
+    <link rel="stylesheet" href="medsalahStyle.css"> <!-- Lien vers un fichier CSS externe -->
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slider-wrapper">
+        <div class="slide">
+            <div class="container">
+                <div class="left-section">
+                    <img src="farah.jpg" alt="Maquette Image">
+                </div>
+                <div class="right-section">
+                    <h1>Farah AZIZI</h1>
+                    <h2>ingenieur genie logiciel</h2>
+                    <p>devloppeur web</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="container">
+                <div class="left-section">   
+                    <img src="chimie.jpg" alt="Hat Image">
+                </div>
+                <div class="right-section">
+                    <p>Ici, simple exemple de slider
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
+
+<footer>
+    <p>&copy; farah azizi 2024 Mon site web. Tous droits réservés.</p>
+</footer>
+
+<script>
+    let slideIndex = 0;
+
+    function showSlide(index) {
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        if (index >= totalSlides) slideIndex = 0;
+        if (index < 0) slideIndex = totalSlides - 1;
+
+        document.querySelector('.slider-wrapper').style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+        slideIndex++;
+        showSlide(slideIndex);
+    }
+
+    function prevSlide() {
+        slideIndex--;
+        showSlide(slideIndex);
+    }
+
+    // Initialize the first slide
+    showSlide(slideIndex);
+</script>
+
+</body>
+</html>
